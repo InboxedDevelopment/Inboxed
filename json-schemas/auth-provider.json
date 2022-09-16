@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/InboxedDevelopment/Inboxed/raw/main/json-schemas/auth-provider.json",
+    "title": "Auth Provider",
+    "description": "An authentication provider descriptor for Inboxed",
+    "type": "object",
+    "properties": {
+        "saml": {
+            "description": "Saml authentication provider descriptor. If provided it will show the administrator an option to choose \"Saml\" for this authentication provider",
+            "type": "object",
+            "properties": {
+                "schema": {
+                    "type": "string",
+                    "description": "The URL where the schema can be downloaded. The file at the URL should follow the Metadata for the OASIS Security Assertion Markup Language (SAML) V2.0 standard"
+                }
+            },
+            "required": [
+                "schema"
+            ]
+        },
+        "oauth2": {
+            "description": "Oauth2 authentication provider descriptor. If provided it will show the administrator an option to use \"OAuth\" for this authentication provider",
+            "type": "object",
+            "properties": {
+                "redirect_uri": {
+                    "type": "string",
+                    "description": "The URL to redirect the user to when authenticating"
+                }
+            }
+        }
+    }
+}
